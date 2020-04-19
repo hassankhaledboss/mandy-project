@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="fgg">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/java-2019-092/eclipse/"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+    <path id="Maven Dependencies.libraryclasspath">
+        <pathelement location="../../.m2/repository/jfree/jfreechart/1.0.13/jfreechart-1.0.13.jar"/>
+        <pathelement location="../../.m2/repository/jfree/jcommon/1.0.16/jcommon-1.0.16.jar"/>
+        <pathelement location="../../.m2/repository/junit/junit/4.12/junit-4.12.jar"/>
+        <pathelement location="../../.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+        <pathelement location="../../.m2/repository/org/mockito/mockito-core/3.3.3/mockito-core-3.3.3.jar"/>
+        <pathelement location="../../.m2/repository/net/bytebuddy/byte-buddy/1.10.5/byte-buddy-1.10.5.jar"/>
+        <pathelement location="../../.m2/repository/net/bytebuddy/byte-buddy-agent/1.10.5/byte-buddy-agent-1.10.5.jar"/>
+        <pathelement location="../../.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar"/>
+        <pathelement location="../../.m2/repository/org/powermock/powermock-module-junit4/2.0.6/powermock-module-junit4-2.0.6.jar"/>
+        <pathelement location="../../.m2/repository/org/powermock/powermock-module-junit4-common/2.0.6/powermock-module-junit4-common-2.0.6.jar"/>
+        <pathelement location="../../.m2/repository/org/powermock/powermock-reflect/2.0.6/powermock-reflect-2.0.6.jar"/>
+        <pathelement location="../../.m2/repository/org/powermock/powermock-core/2.0.6/powermock-core-2.0.6.jar"/>
+        <pathelement location="../../.m2/repository/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA.jar"/>
+    </path>
+    <path id="fgg.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/jcommon-1.0.23.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/jfreechart-1.0.19.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/jfreechart-1.0.19-experimental.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/jfreechart-1.0.19-swt.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/jfreesvg-2.0.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/junit-4.11.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/orsoncharts-1.4-eval-nofx.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/orsonpdf-1.6-eval.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/servlet.jar"/>
+        <pathelement location="../../Downloads/jfreechart/src/lib/swtgraphics2d.jar"/>
+    </path>
+    <path id="run.AppTest.classpath">
+        <path refid="fgg.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.fgg (1).classpath">
+        <path refid="fgg.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.MSTesting (1).classpath">
+        <path refid="fgg.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.WWETesting.classpath">
+        <path refid="fgg.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.App (1).classpath">
+        <path refid="fgg.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target/classes"/>
+        <mkdir dir="target/test-classes"/>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/test-classes">
+            <fileset dir="src/test/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target/classes"/>
+        <delete dir="target/test-classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <classpath refid="fgg.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/test/java"/>
+            <classpath refid="fgg.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="AppTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="mandy.com.fgg.AppTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.AppTest.classpath"/>
+        </junit>
+    </target>
+    <target name="fgg (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="mandy.com.fgg.WWETesting" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.fgg (1).classpath"/>
+        </junit>
+    </target>
+    <target name="MSTesting (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="mandy.com.fgg.MSTesting" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.MSTesting (1).classpath"/>
+        </junit>
+    </target>
+    <target name="WWETesting">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="mandy.com.fgg.WWETesting" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.WWETesting.classpath"/>
+        </junit>
+    </target>
+    <target name="App (1)">
+        <java classname="mandy.com.fgg.App" failonerror="true" fork="yes">
+            <classpath refid="run.App (1).classpath"/>
+        </java>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
